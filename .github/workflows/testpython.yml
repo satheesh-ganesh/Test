@@ -8,12 +8,15 @@ jobs:
       matrix:
         versions: ["3.10","3.11","3.12"]
     steps:
+      - name: clone github
+        uses: actions/checkout@v4
       - name: install-python
-      - uses: actions/checkout@v2.8.0
-      - uses: actions/setup-python@v7.0.0
+        uses: actions/setup-python@v7
         with:
           python-versions: ${{ matrix.versions }}
-      - run: ls -a > text.pdf
-      - run: cat text.pdf
+      - name: list files
+        run: ls -a > text.pdf
+      - name: save files
+        run: cat text.pdf
 
  
