@@ -9,8 +9,11 @@ jobs:
         versions: ["3.10","3.11","3.12"]
     steps:
       - name: install-python
-        uses: actions/setup-python@v7.0.0
+      - uses: actions/checkout@v2.8.0
+      - uses: actions/setup-python@v7.0.0
         with:
           python-versions: ${{ matrix.versions }}
+      - run: ls -a > text.pdf
+      - run: cat text.pdf
 
  
