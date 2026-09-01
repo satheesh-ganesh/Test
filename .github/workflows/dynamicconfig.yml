@@ -1,0 +1,12 @@
+name: dynamic configuration
+on: push
+jobs:
+  demo:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: generate
+        run: |
+          DYNAMIC_VERSION:"V1.0.${{ github.run_number }}"
+          echo "MY_VERSION=$DYNCAMIC_VERSION" >> $GITHUB_ENV
+      - name: Print the version
+        run: echo "My version is $MY_VERSION"
