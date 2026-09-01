@@ -6,7 +6,7 @@ jobs:
     steps:
       - name: generate
         run: |
-          DYNAMIC_VERSION:"V1.0.${{ github.run_number }}"
+          DYNAMIC_VERSION="V1.0.${{ github.run_number }}"
           echo "MY_VERSION=$DYNAMIC_VERSION" >> $GITHUB_ENV
       - name: Print the version
         run: echo "My version is $MY_VERSION"
